@@ -14,7 +14,7 @@ $f$ を凸関数とする。このとき、
 
 $$f(\mathbb{E}[X]) \leq \mathbb{E}[f(X)]$$
 
-（$f$ が凹関数なら不等号が逆）
+（ $f$ が凹関数なら不等号が逆）
 
 **証明（離散版）：**
 
@@ -58,7 +58,7 @@ $$f(\mathbb{E}[X]) = f\left(\sum_i p_i x_i\right) \leq \sum_i p_i f(x_i) = \math
 
 $$|\langle \mathbf{u}, \mathbf{v} \rangle| \leq \|\mathbf{u}\| \|\mathbf{v}\|$$
 
-等号成立条件：$\mathbf{u} = c\mathbf{v}$（平行）
+等号成立条件： $\mathbf{u} = c\mathbf{v}$（平行）
 
 **証明：**
 
@@ -116,11 +116,11 @@ $X_1, X_2, ...$ を i.i.d.、$\mathbb{E}[X_i] = \mu$、$\text{Var}(X_i) = \sigma
 
 $$\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \xrightarrow{d} \mathcal{N}(0, 1)$$
 
-（$\xrightarrow{d}$ は分布収束）
+（ $\xrightarrow{d}$ は分布収束）
 
 **意味：**
 
-標本平均の分布は、$n$ が大きいとき正規分布に近づく
+標本平均の分布は、 $n$ が大きいとき正規分布に近づく
 
 **LLMへの応用：**
 
@@ -141,7 +141,7 @@ $$x^* = \arg\min_x f(x) \Leftrightarrow \nabla f(x^*) = 0$$
 
 **証明：**
 
-($\Rightarrow$) $x^*$ が最小点なら、任意の方向 $d$ に対して
+( $\Rightarrow$) $x^*$ が最小点なら、任意の方向 $d$ に対して
 
 $$f(x^* + \epsilon d) \geq f(x^*)$$
 
@@ -157,11 +157,11 @@ $\epsilon < 0$ でも成立するには $\langle \nabla f(x^*), d \rangle \leq 0
 
 ∴ $\nabla f(x^*) = 0$
 
-($\Leftarrow$) 凸関数の性質より、任意の $x$ に対して
+( $\Leftarrow$) 凸関数の性質より、任意の $x$ に対して
 
 $$f(x) \geq f(x^*) + \langle \nabla f(x^*), x - x^* \rangle = f(x^*)$$
 
-（$\nabla f(x^*) = 0$ を使用）
+（ $\nabla f(x^*) = 0$ を使用）
 
 ∴ $x^*$ は最小点
 
@@ -177,7 +177,7 @@ $f$ を $L$-Lipschitz連続な勾配を持つ凸関数とする。学習率 $\et
 
 $$x_{t+1} = x_t - \eta \nabla f(x_t)$$
 
-は、$T$ ステップ後に
+は、 $T$ ステップ後に
 
 $$f(\bar{x}_T) - f(x^*) \leq \frac{\|x_0 - x^*\|^2}{2\eta T}$$
 
@@ -217,7 +217,7 @@ $$H(P) \leq H(P, Q)$$
 
 ここで $H(P) = -\sum_x P(x) \log P(x)$（エントロピー）、$H(P, Q) = -\sum_x P(x) \log Q(x)$（クロスエントロピー）
 
-等号成立条件：$P = Q$
+等号成立条件： $P = Q$
 
 **証明：**
 
@@ -343,7 +343,7 @@ $$\delta^{(l)} := \frac{\partial \mathcal{L}}{\partial h^{(l)}}$$
 
 $$\delta^{(l-1)} = \delta^{(l)} \frac{\partial h^{(l)}}{\partial h^{(l-1)}} = \delta^{(l)} \odot \sigma'(z^{(l)}) \cdot W^{(l)}$$
 
-（$\odot$ は要素ごとの積）
+（ $\odot$ は要素ごとの積）
 
 **勾配：**
 
@@ -379,7 +379,7 @@ $$A = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
 2. softmax: $O(n^2)$（各行 $O(n)$、$n$ 行）
 3. $AV$: $(n \times n) \times (n \times d) = O(n^2 d)$
 
-総計：$O(n^2 d)$
+総計： $O(n^2 d)$
 
 ### B.7.2 Positional Encodingの性質
 

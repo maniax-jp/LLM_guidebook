@@ -121,7 +121,7 @@ $$\approx [0.35, 0.19, 0.33, 0.20, 0.27]$$
 
 $$\text{Output}_{\text{猫}} = 0.35 \times \mathbf{v}_{\text{猫}} + 0.33 \times \mathbf{v}_{\text{魚}} + \cdots$$
 
-### 4.1.4 なぜスケーリング（$\sqrt{d_k}$）が必要か
+### 4.1.4 なぜスケーリング（ $\sqrt{d_k}$）が必要か
 
 **問題：大きな次元での内積**
 
@@ -129,9 +129,9 @@ $d_k = 64$ の場合、2つのランダム単位ベクトルの内積：
 
 $$\mathbf{q} \cdot \mathbf{k} = \sum_{i=1}^{64} q_i k_i$$
 
-期待値：$\mathbb{E}[\mathbf{q} \cdot \mathbf{k}] = 0$
+期待値： $\mathbb{E}[\mathbf{q} \cdot \mathbf{k}] = 0$
 
-分散：$\text{Var}(\mathbf{q} \cdot \mathbf{k}) = d_k = 64$
+分散： $\text{Var}(\mathbf{q} \cdot \mathbf{k}) = d_k = 64$
 
 **結果：**
 
@@ -147,7 +147,7 @@ Softmax: [0.88, 0.12, 0.00, 0.00]  ← ほぼone-hot（勾配小）
 Softmax: [0.44, 0.30, 0.15, 0.11]  ← 滑らか（勾配大）
 ```
 
-**解決策：$\sqrt{d_k}$ で割る**
+**解決策： $\sqrt{d_k}$ で割る**
 
 $$\text{Var}\left(\frac{\mathbf{q} \cdot \mathbf{k}}{\sqrt{d_k}}\right) = \frac{d_k}{d_k} = 1$$
 
@@ -160,8 +160,8 @@ $$\text{Var}\left(\frac{\mathbf{q} \cdot \mathbf{k}}{\sqrt{d_k}}\right) = \frac{
 $$\text{softmax}(\mathbf{x})_i = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}$$
 
 **性質：**
-1. 出力は確率分布：$\sum_i \text{softmax}(\mathbf{x})_i = 1$
-2. 非負：$\text{softmax}(\mathbf{x})_i \geq 0$
+1. 出力は確率分布： $\sum_i \text{softmax}(\mathbf{x})_i = 1$
+2. 非負： $\text{softmax}(\mathbf{x})_i \geq 0$
 3. 最大値を強調：大きな $x_i$ に高い確率
 
 **例：**
@@ -219,7 +219,7 @@ $$\text{head}_i = \text{Attention}(\mathbf{QW}_i^Q, \mathbf{KW}_i^K, \mathbf{VW}
 - $\mathbf{W}_i^V \in \mathbb{R}^{d_{\text{model}} \times d_v}$：Value射影
 - $\mathbf{W}^O \in \mathbb{R}^{hd_v \times d_{\text{model}}}$：出力射影
 
-通常：$d_k = d_v = d_{\text{model}}/h$
+通常： $d_k = d_v = d_{\text{model}}/h$
 
 **視覚化（h=8ヘッドの場合）：**
 
@@ -398,7 +398,7 @@ $$PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{\text{model}}}}\right)$$
 
 **なぜこの形式？**
 
-1. **有界性**：$\sin, \cos \in [-1, 1]$
+1. **有界性**： $\sin, \cos \in [-1, 1]$
 
 2. **線形性**：
    $$PE_{pos+k} = f(PE_{pos})$$
@@ -463,7 +463,7 @@ $$\mathbf{PE} \in \mathbb{R}^{L_{\max} \times d_{\text{model}}}$$
 **GPT-2の例：**
 - $L_{\max} = 1024$
 - $d_{\text{model}} = 768$
-- パラメータ数：$1024 \times 768 = 786,432$
+- パラメータ数： $1024 \times 768 = 786,432$
 
 ### 4.2.3 相対位置エンコーディング
 
