@@ -37,15 +37,15 @@ $$f(\mathbb{E}[X]) = f\left(\sum_i p_i x_i\right) \leq \sum_i p_i f(x_i) = \math
 1. **KL ダイバージェンスの非負性**
    
    $$D_{\text{KL}}(P \| Q) = \mathbb{E}_P\left[\log \frac{P(x)}{Q(x)}\right]$$
-   
+
    $-\log$ は凸関数なので、Jensen の不等式より
    
    $$-\log \mathbb{E}_P\left[\frac{Q(x)}{P(x)}\right] \leq \mathbb{E}_P\left[-\log \frac{Q(x)}{P(x)}\right] = D_{\text{KL}}(P \| Q)$$
-   
+
    左辺：
    
    $$-\log \sum_x P(x) \frac{Q(x)}{P(x)} = -\log \sum_x Q(x) = -\log 1 = 0$$
-   
+
    ∴ $D_{\text{KL}}(P \| Q) \geq 0$
 
 2. **対数和不等式**
