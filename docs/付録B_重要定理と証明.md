@@ -26,7 +26,7 @@ $$f(\lambda x_1 + (1-\lambda)x_2) \leq \lambda f(x_1) + (1-\lambda)f(x_2)$$
 
 $$f\left(\sum_{i=1}^n p_i x_i\right) \leq \sum_{i=1}^n p_i f(x_i)$$
 
-ここで $\sum p_i = 1$、$p_i \geq 0$
+ここで $\sum p_i = 1$、 $p_i \geq 0$
 
 確率分布 $P(X=x_i) = p_i$ とすれば
 
@@ -181,7 +181,7 @@ $$x_{t+1} = x_t - \eta \nabla f(x_t)$$
 
 $$f(\bar{x}_T) - f(x^*) \leq \frac{\|x_0 - x^*\|^2}{2\eta T}$$
 
-を満たす。ここで $\bar{x}_T = \frac{1}{T}\sum_{t=1}^T x_t$、$x^*$ は最適解。
+を満たす。ここで $\bar{x}_T = \frac{1}{T}\sum_{t=1}^T x_t$、 $x^*$ は最適解。
 
 **証明の概略：**
 
@@ -376,7 +376,7 @@ $$O(n^2 d)$$
 $$A = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
 
 1. $QK^T$: $(n \times d) \times (d \times n) = O(n^2 d)$
-2. softmax: $O(n^2)$（各行 $O(n)$、$n$ 行）
+2. softmax: $O(n^2)$（各行 $O(n)$、 $n$ 行）
 3. $AV$: $(n \times n) \times (n \times d) = O(n^2 d)$
 
 総計： $O(n^2 d)$

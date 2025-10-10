@@ -215,9 +215,9 @@ $$\text{MultiHead}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{Concat}(\text{hea
 $$\text{head}_i = \text{Attention}(\mathbf{QW}_i^Q, \mathbf{KW}_i^K, \mathbf{VW}_i^V)$$
 
 **パラメータ：**
-- $\mathbf{W}_i^Q \in \mathbb{R}^{d_{\text{model}} \times d_k}$：Query射影
-- $\mathbf{W}_i^K \in \mathbb{R}^{d_{\text{model}} \times d_k}$：Key射影
-- $\mathbf{W}_i^V \in \mathbb{R}^{d_{\text{model}} \times d_v}$：Value射影
+- $\mathbf{W}^Q_i \in \mathbb{R}^{d_{\text{model}} \times d_k}$：Query射影
+- $\mathbf{W}^K_i \in \mathbb{R}^{d_{\text{model}} \times d_k}$：Key射影
+- $\mathbf{W}^V_i \in \mathbb{R}^{d_{\text{model}} \times d_v}$：Value射影
 - $\mathbf{W}^O \in \mathbb{R}^{hd_v \times d_{\text{model}}}$：出力射影
 
 通常： $d_k = d_v = d_{\text{model}}/h$
