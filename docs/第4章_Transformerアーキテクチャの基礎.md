@@ -871,7 +871,10 @@ GPTのような生成モデルがどのように動作するかを理解して�
 ## 練習問題
 
 ### 問題1：アテンションスコアの計算
-$\mathbf{Q} = [1, 0]$, $\mathbf{K} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{bmatrix}$, $d_k=2$ のとき、スケール後のスコアを計算せよ。
+$$\mathbf{Q} = [1, 0], 
+\mathbf{K} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{bmatrix}
+, d_k=2$$
+のとき、スケール後のスコアを計算せよ。
 
 ### 問題2：Softmax
 $\mathbf{x} = [1, 2, 3, 4]$ のSoftmaxを計算せよ。
