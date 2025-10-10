@@ -403,7 +403,7 @@ $$\cos(pos' / \omega) = \cos(pos/\omega) \cos(k/\omega) - \sin(pos/\omega) \sin(
 
 行列形式：
 
-$$\begin{pmatrix} \sin(pos'/\omega) \\ \cos(pos'/\omega) \end{pmatrix} = \begin{pmatrix} \cos(k/\omega) & \sin(k/\omega) \\ -\sin(k/\omega) & \cos(k/\omega) \end{pmatrix} \begin{pmatrix} \sin(pos/\omega) \\ \cos(pos/\omega) \end{pmatrix}$$
+$$\begin{pmatrix} \sin(pos'/\omega) \\\ \cos(pos'/\omega) \end{pmatrix} = \begin{pmatrix} \cos(k/\omega) & \sin(k/\omega) \\\ -\sin(k/\omega) & \cos(k/\omega) \end{pmatrix} \begin{pmatrix} \sin(pos/\omega) \\\ \cos(pos/\omega) \end{pmatrix}$$
 
 回転行列による線形変換！
 

@@ -103,7 +103,7 @@ $\mathbf{Q} = [1.0, 0.1]$（猫のベクトル）
 
 $\mathbf{K}$：各単語のベクトル
 
-$$S_{\text{猫}} = \frac{1}{\sqrt{2}}[1.0, 0.1] \cdot \begin{bmatrix} 1.0 \\ 0.1 \\ 0.9 \\ 0.2 \\ 0.5 \end{bmatrix}^\top \approx [0.72, 0.09, 0.65, 0.15, 0.42]$$
+$$S_{\text{猫}} = \frac{1}{\sqrt{2}}[1.0, 0.1] \cdot \begin{bmatrix} 1.0 \\\ 0.1 \\\ 0.9 \\\ 0.2 \\\ 0.5 \end{bmatrix}^\top \approx [0.72, 0.09, 0.65, 0.15, 0.42]$$
 
 **ステップ2：Softmax**
 
@@ -500,7 +500,7 @@ $$A_{ij} = \frac{\mathbf{q}_i \cdot \mathbf{k}_j + \mathbf{q}_i \cdot \mathbf{r}
 
 **数式（2次元の場合）：**
 
-$$\begin{bmatrix} q_0' \\ q_1' \end{bmatrix} = \begin{bmatrix} \cos(m\theta) & -\sin(m\theta) \\ \sin(m\theta) & \cos(m\theta) \end{bmatrix} \begin{bmatrix} q_0 \\ q_1 \end{bmatrix}$$
+$$\begin{bmatrix} q_0' \\\ q_1' \end{bmatrix} = \begin{bmatrix} \cos(m\theta) & -\sin(m\theta) \\\ \sin(m\theta) & \cos(m\theta) \end{bmatrix} \begin{bmatrix} q_0 \\\ q_1 \end{bmatrix}$$
 
 ここで：
 - $m$：位置
@@ -871,9 +871,7 @@ GPTのような生成モデルがどのように動作するかを理解して�
 ## 練習問題
 
 ### 問題1：アテンションスコアの計算
-$$\mathbf{Q} = [1, 0], 
-\mathbf{K} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{bmatrix}
-, d_k=2$$
+$$\mathbf{Q} = [1, 0], \mathbf{K} = \begin{bmatrix} 1 & 0 \\\ 0 & 1 \\\ 1 & 1 \end{bmatrix}, d_k=2$$
 のとき、スケール後のスコアを計算せよ。
 
 ### 問題2：Softmax
@@ -888,7 +886,7 @@ $\mathbf{x} = [1, 2, 3, 4]$, $\gamma=1$, $\beta=0$, $\epsilon=0$ として Layer
 ### 解答
 
 **問題1:**
-$$\mathbf{S} = \frac{1}{\sqrt{2}}\mathbf{QK}^\top = \frac{1}{\sqrt{2}}[1, 0]\begin{bmatrix} 1 & 0 & 1 \\ 0 & 1 & 1 \end{bmatrix} = \frac{1}{\sqrt{2}}[1, 0, 1] \approx [0.707, 0, 0.707]$$
+$$\mathbf{S} = \frac{1}{\sqrt{2}}\mathbf{QK}^\top = \frac{1}{\sqrt{2}}[1, 0]\begin{bmatrix} 1 & 0 & 1 \\\ 0 & 1 & 1 \end{bmatrix} = \frac{1}{\sqrt{2}}[1, 0, 1] \approx [0.707, 0, 0.707]$$
 
 **問題2:**
 $$e^{\mathbf{x}} = [e^1, e^2, e^3, e^4] = [2.72, 7.39, 20.09, 54.60]$$
