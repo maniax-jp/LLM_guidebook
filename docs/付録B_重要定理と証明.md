@@ -86,7 +86,7 @@ $$\Rightarrow \langle \mathbf{u}, \mathbf{v} \rangle^2 \leq \|\mathbf{u}\|^2 \|\
 
 **定理（弱法則）：**
 
-$X_1, X_2, ...$ を独立同分布（i.i.d.）な確率変数、$\mathbb{E}[X_i] = \mu$ とする。このとき、任意の $\epsilon > 0$ に対して
+$X_1, X_2, ...$ を独立同分布（i.i.d.）な確率変数、 $\mathbb{E}[X_i] = \mu$ とする。このとき、任意の $\epsilon > 0$ に対して
 
 $$\lim_{n \to \infty} P\left(\left|\frac{1}{n}\sum_{i=1}^n X_i - \mu\right| > \epsilon\right) = 0$$
 
@@ -112,7 +112,7 @@ $n \to \infty$ で右辺 $\to 0$
 
 **定理：**
 
-$X_1, X_2, ...$ を i.i.d.、$\mathbb{E}[X_i] = \mu$、$\text{Var}(X_i) = \sigma^2$ とする。このとき
+$X_1, X_2, ...$ を i.i.d.、 $\mathbb{E}[X_i] = \mu$、 $\text{Var}(X_i) = \sigma^2$ とする。このとき
 
 $$\frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma} \xrightarrow{d} \mathcal{N}(0, 1)$$
 
@@ -215,7 +215,7 @@ $$O(1/T)$$
 
 $$H(P) \leq H(P, Q)$$
 
-ここで $H(P) = -\sum_x P(x) \log P(x)$（エントロピー）、$H(P, Q) = -\sum_x P(x) \log Q(x)$（クロスエントロピー）
+ここで $H(P) = -\sum_x P(x) \log P(x)$（エントロピー）、 $H(P, Q) = -\sum_x P(x) \log Q(x)$（クロスエントロピー）
 
 等号成立条件： $P = Q$
 
@@ -271,7 +271,7 @@ $$A = U\Sigma V^T$$
 
 2. $\Lambda$ の対角成分 $\lambda_i \geq 0$（半正定値性）
 
-3. $\sigma_i = \sqrt{\lambda_i}$ とし、$u_i = \frac{1}{\sigma_i} Av_i$
+3. $\sigma_i = \sqrt{\lambda_i}$ とし、 $u_i = \frac{1}{\sigma_i} Av_i$
 
 4. これらが直交系をなすことを示す
 
@@ -499,7 +499,7 @@ PPOの理論的基盤
 
 **定理（Vapnik-Chervonenkis）：**
 
-VC次元が $d$ の仮説クラス $\mathcal{H}$ に対して、$n$ 個のサンプルで学習した仮説 $h$ の汎化誤差は、高確率で
+VC次元が $d$ の仮説クラス $\mathcal{H}$ に対して、 $n$ 個のサンプルで学習した仮説 $h$ の汎化誤差は、高確率で
 
 $$\text{Error}_{\text{test}}(h) \leq \text{Error}_{\text{train}}(h) + O\left(\sqrt{\frac{d \log n}{n}}\right)$$
 

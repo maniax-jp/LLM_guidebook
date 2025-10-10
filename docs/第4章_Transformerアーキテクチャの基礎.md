@@ -592,7 +592,7 @@ $$\hat{x} = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}} \cdot \gamma + \beta$$
 $$\mu = \frac{1}{d}\sum_{i=1}^{d} x_i, \quad \sigma^2 = \frac{1}{d}\sum_{i=1}^{d}(x_i - \mu)^2$$
 
 - $\gamma, \beta$：学習可能なパラメータ（スケールとシフト）
-- $\epsilon$：数値安定性のための小さな定数（例：$10^{-5}$）
+- $\epsilon$：数値安定性のための小さな定数（例： $10^{-5}$）
 
 **視覚化：**
 
@@ -883,7 +883,7 @@ $$\mathbf{Q} = [1, 0], \mathbf{K} = \begin{bmatrix} 1 & 0 \\\ 0 & 1 \\\ 1 & 1 \e
 $\mathbf{x} = [1, 2, 3, 4]$ のSoftmaxを計算せよ。
 
 ### 問題3：位置エンコーディング
-$pos=0, i=0, d_{\text{model}}=512$ のとき、$PE_{(0,0)}$ と $PE_{(0,1)}$ を計算せよ。
+$pos=0, i=0, d_{\text{model}}=512$ のとき、 $PE_{(0,0)}$ と $PE_{(0,1)}$ を計算せよ。
 
 ### 問題4：Layer Normalization
 $\mathbf{x} = [1, 2, 3, 4]$, $\gamma=1$, $\beta=0$, $\epsilon=0$ として Layer Norm の出力を計算せよ。
