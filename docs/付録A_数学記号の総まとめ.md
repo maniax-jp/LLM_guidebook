@@ -77,9 +77,9 @@ $$\{x \in \mathbb{R} \mid x^2 < 4\} = (-2, 2)$$
 | $\log(x)$ | 対数（底10または文脈依存） | $\log_{10}(x)$ or $\ln(x)$ |
 | $\lfloor x \rfloor$ | 床関数（切り捨て） | $\lfloor 3.7 \rfloor = 3$ |
 | $\lceil x \rceil$ | 天井関数（切り上げ） | $\lceil 3.2 \rceil = 4$ |
-| $\text{sgn}(x)$ | 符号関数 | $\begin{cases}1 & x>0\\0 & x=0\\-1 & x<0\end{cases}$ |
+| $\text{sgn}(x)$ | 符号関数 | $1 (x>0), 0 (x=0), -1 (x<0)$ |
 | $\|x\|$ | 絶対値 | $\|-5\| = 5$ |
-| $\mathbb{1}_A(x)$ | 指示関数 | $\begin{cases}1 & x \in A\\0 & x \notin A\end{cases}$ |
+| $\mathbb{1}_A(x)$ | 指示関数 | $1 (x \in A), 0 (x \notin A)$ |
 
 ---
 
@@ -131,10 +131,10 @@ $$\{x \in \mathbb{R} \mid x^2 < 4\} = (-2, 2)$$
 |------|------|-----|
 | $\mathbf{v}$ | ベクトル | $\mathbf{v} = (v_1, v_2, v_3)$ |
 | $\|\mathbf{v}\|$ | ベクトルのノルム | $\|\mathbf{v}\|_2 = \sqrt{v_1^2 + ... + v_n^2}$ |
-| $\|\mathbf{v}\|_p$ | $L^p$ ノルム | $\|\mathbf{v}\|_p = \left(\sum_i |v_i|^p\right)^{1/p}$ |
-| $\|\mathbf{v}\|_1$ | $L^1$ ノルム（マンハッタン距離） | $\sum_i |v_i|$ |
+| $\|\mathbf{v}\|_p$ | $L^p$ ノルム | $\|\mathbf{v}\|_p = \left(\sum_i \|v_i\|^p\right)^{1/p}$ |
+| $\|\mathbf{v}\|_1$ | $L^1$ ノルム（マンハッタン距離） | $\sum_i \|v_i\|$ |
 | $\|\mathbf{v}\|_2$ | $L^2$ ノルム（ユークリッド距離） | $\sqrt{\sum_i v_i^2}$ |
-| $\|\mathbf{v}\|_\infty$ | $L^\infty$ ノルム（最大ノルム） | $\max_i |v_i|$ |
+| $\|\mathbf{v}\|_\infty$ | $L^\infty$ ノルム（最大ノルム） | $\max_i \|v_i\|$ |
 | $\langle \mathbf{u}, \mathbf{v} \rangle$ | 内積 | $\sum_i u_i v_i$ |
 | $\mathbf{u} \cdot \mathbf{v}$ | 内積（別記法） | $\sum_i u_i v_i$ |
 | $\mathbf{u} \times \mathbf{v}$ | 外積（3次元） | クロス積 |
@@ -147,16 +147,16 @@ $$\{x \in \mathbb{R} \mid x^2 < 4\} = (-2, 2)$$
 | 記号 | 意味 | 例 |
 |------|------|-----|
 | $A$ | 行列 | $A \in \mathbb{R}^{m \times n}$ |
-| $A^T$ | 転置行列 | $(A^T)_{ij} = A_{ji}$ |
+| $A^T$ | 転置行列 | $A_{ij}^T = A_{ji}$ |
 | $A^{-1}$ | 逆行列 | $AA^{-1} = I$ |
-| $A^*$ | 随伴行列（複素共役転置） | $(A^*)_{ij} = \overline{A_{ji}}$ |
+| $A^*$ | 随伴行列（複素共役転置） | $A_{ij}^* = \overline{A_{ji}}$ |
 | $\det(A)$ | 行列式 | スカラー値 |
 | $\text{tr}(A)$ | トレース（対角和） | $\sum_i A_{ii}$ |
 | $\text{rank}(A)$ | 階数 | 線形独立な行（列）の数 |
 | $\text{diag}(a_1, ..., a_n)$ | 対角行列 | 対角成分が $a_i$ |
 | $I$ or $I_n$ | 単位行列 | $I_{ij} = \delta_{ij}$ |
 | $0$ | ゼロ行列 | 全要素が0 |
-| $A \odot B$ | アダマール積（要素ごと） | $(A \odot B)_{ij} = A_{ij} B_{ij}$ |
+| $A \odot B$ | アダマール積（要素ごと） | $`(A \odot B)_{ij} = A_{ij} B_{ij}`$ |
 | $A \otimes B$ | クロネッカー積 | テンソル積 |
 | $\lambda$ | 固有値 | $A\mathbf{v} = \lambda \mathbf{v}$ |
 | $\mathbf{v}$ | 固有ベクトル | $A\mathbf{v} = \lambda \mathbf{v}$ |
@@ -354,7 +354,7 @@ $$\{x \in \mathbb{R} \mid x^2 < 4\} = (-2, 2)$$
 |------|------|--------|
 | Sigmoid | $\sigma(x) = \frac{1}{1+e^{-x}}$ | $\sigma(x)(1-\sigma(x))$ |
 | Tanh | $\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$ | $1 - \tanh^2(x)$ |
-| ReLU | $\text{ReLU}(x) = \max(0, x)$ | $\begin{cases}1 & x>0\\0 & x\leq 0\end{cases}$ |
+| ReLU | $\text{ReLU}(x) = \max(0, x)$ | $`\begin{cases}1 & x>0\\0 & x\leq 0\end{cases}`$ |
 | GELU | $\text{GELU}(x) = x\Phi(x)$ | 複雑（数値計算） |
 | Softmax | $\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_j e^{x_j}}$ | $\text{softmax}(x_i)(1-\text{softmax}(x_i))$ |
 

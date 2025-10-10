@@ -92,7 +92,7 @@ $$\lim_{n \to \infty} P\left(\left|\frac{1}{n}\sum_{i=1}^n X_i - \mu\right| > \e
 
 **証明の概略（Chebyshevの不等式を用いて）：**
 
-標本平均 $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$
+標本平均 $`\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i`$
 
 $$\mathbb{E}[\bar{X}_n] = \mu$$
 
@@ -147,7 +147,7 @@ $$f(x^* + \epsilon d) \geq f(x^*)$$
 
 1次のTaylor展開：
 
-$$f(x^* + \epsilon d) \approx f(x^*) + \epsilon \langle \nabla f(x^*), d \rangle$$
+$$f(x^\* + \epsilon d) \approx f(x^\*) + \epsilon \langle \nabla f(x^\*), d \rangle$$
 
 $\epsilon > 0$ で上式が成立するには $\langle \nabla f(x^*), d \rangle \geq 0$
 
@@ -155,11 +155,11 @@ $\epsilon < 0$ でも成立するには $\langle \nabla f(x^*), d \rangle \leq 0
 
 両方満たすには $\langle \nabla f(x^*), d \rangle = 0$ for all $d$
 
-∴ $\nabla f(x^*) = 0$
+∴ $\nabla f(x^\*) = 0$
 
 ( $\Leftarrow$) 凸関数の性質より、任意の $x$ に対して
 
-$$f(x) \geq f(x^*) + \langle \nabla f(x^*), x - x^* \rangle = f(x^*)$$
+$$f(x) \geq f(x^\*) + \langle \nabla f(x^\*), x - x^* \rangle = f(x^\*)$$
 
 （ $\nabla f(x^*) = 0$ を使用）
 
@@ -179,9 +179,9 @@ $$x_{t+1} = x_t - \eta \nabla f(x_t)$$
 
 は、 $T$ ステップ後に
 
-$$f(\bar{x}_T) - f(x^*) \leq \frac{\|x_0 - x^*\|^2}{2\eta T}$$
+$$f(\bar{x}_T) - f(x^\*) \leq \frac{\|x_0 - x^\*\|^2}{2\eta T}$$
 
-を満たす。ここで $\bar{x}_T = \frac{1}{T}\sum_{t=1}^T x_t$、 $x^*$ は最適解。
+を満たす。ここで $`\bar{x}_T = \frac{1}{T}\sum_{t=1}^T x_t`$、 $x^*$ は最適解。
 
 **証明の概略：**
 
@@ -449,7 +449,7 @@ $$\log L(N) \approx \alpha \log N_c - \alpha \log N$$
 
 最適価値関数 $V^*(s)$ は以下を満たす：
 
-$$V^*(s) = \max_a \left[R(s, a) + \gamma \sum_{s'} P(s'|s,a) V^*(s')\right]$$
+$$V^\*(s) = \max_a \left[R(s, a) + \gamma \sum_{s'} P(s'|s,a) V^\*(s')\right]$$
 
 **証明：**
 
@@ -459,9 +459,9 @@ $$V^*(s) = \mathbb{E}_{\pi^*}\left[\sum_{t=0}^\infty \gamma^t R_t \mid S_0 = s\r
 
 $$= \mathbb{E}_{\pi^*}\left[R_0 + \gamma \sum_{t=1}^\infty \gamma^{t-1} R_t \mid S_0 = s\right]$$
 
-$$= \max_a \left[R(s, a) + \gamma \mathbb{E}[V^*(S_1) | S_0 = s, A_0 = a]\right]$$
+$$= \max_a \left[R(s, a) + \gamma \mathbb{E}[V^\*(S_1) | S_0 = s, A_0 = a]\right]$$
 
-$$= \max_a \left[R(s, a) + \gamma \sum_{s'} P(s'|s,a) V^*(s')\right]$$
+$$= \max_a \left[R(s, a) + \gamma \sum_{s'} P(s'|s,a) V^\*(s')\right]$$
 
 **LLMへの応用：**
 
