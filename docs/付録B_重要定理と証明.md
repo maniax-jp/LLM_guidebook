@@ -35,16 +35,16 @@ $$f(\mathbb{E}[X]) = f\left(\sum_i p_i x_i\right) \leq \sum_i p_i f(x_i) = \math
 **応用例：**
 
 1. **KL ダイバージェンスの非負性**
-   
-   $$D_{\text{KL}}(P \| Q) = \mathbb{E}_P\left[\log \frac{P(x)}{Q(x)}\right]$$
+
+$$D_{\text{KL}}(P \| Q) = \mathbb{E}_P\left[\log \frac{P(x)}{Q(x)}\right]$$
 
    $-\log$ は凸関数なので、Jensen の不等式より
-   
-   $$-\log \mathbb{E}_P\left[\frac{Q(x)}{P(x)}\right] \leq \mathbb{E}_P\left[-\log \frac{Q(x)}{P(x)}\right] = D_{\text{KL}}(P \| Q)$$
+
+$$-\log \mathbb{E}_P\left[\frac{Q(x)}{P(x)}\right] \leq \mathbb{E}_P\left[-\log \frac{Q(x)}{P(x)}\right] = D_{\text{KL}}(P \| Q)$$
 
    左辺：
-   
-   $$-\log \sum_x P(x) \frac{Q(x)}{P(x)} = -\log \sum_x Q(x) = -\log 1 = 0$$
+
+$$-\log \sum_x P(x) \frac{Q(x)}{P(x)} = -\log \sum_x Q(x) = -\log 1 = 0$$
 
    ∴ $D_{\text{KL}}(P \| Q) \geq 0$
 
@@ -455,7 +455,7 @@ $$V^\*(s) = \max_a \left[R(s, a) + \gamma \sum_{s'} P(s'|s,a) V^\*(s')\right]$$
 
 最適方策 $\pi^*$ の下で
 
-$$V^*(s) = \mathbb{E}_{\pi^*}\left[\sum_{t=0}^\infty \gamma^t R_t \mid S_0 = s\right]$$
+$$V^\*(s) = \mathbb{E}_{\pi^\*}\left[\sum_{t=0}^\infty \gamma^t R_t \mid S_0 = s\right]$$
 
 $$= \mathbb{E}_{\pi^*}\left[R_0 + \gamma \sum_{t=1}^\infty \gamma^{t-1} R_t \mid S_0 = s\right]$$
 
