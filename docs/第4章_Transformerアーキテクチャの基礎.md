@@ -61,6 +61,10 @@ $$\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\fr
 - $d_k$：Keyの次元
 - $\sqrt{d_k}$：スケーリング係数
 
+$$\text{softmax}(\mathbf{x})_i = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}$$
+
+softmaxについては後述。
+
 **ステップバイステップ：**
 
 **1. 類似度の計算**
@@ -103,7 +107,7 @@ $\mathbf{Q} = [1.0, 0.1]$（猫のベクトル）
 
 $\mathbf{K}$：各単語のベクトル
 
-$$S_{\text{猫}} = \frac{1}{\sqrt{2}}[1.0, 0.1] \cdot \begin{bmatrix} 1.0 \\\ 0.1 \\\ 0.9 \\\ 0.2 \\\ 0.5 \end{bmatrix}^\top \approx [0.72, 0.09, 0.65, 0.15, 0.42]$$
+$$S_{\text{猫}} = \frac{1}{\sqrt{2}}[1.0, 0.1] \cdot \begin{bmatrix} 1.0 & 0.1 \\\ 0.1 & 0.2 \\\ 0.9 & 0.2 \\\ 0.2 & 0.1 \\\ 0.5 & 0.8 \end{bmatrix}^\top \approx [0.72, 0.09, 0.65, 0.15, 0.42]$$
 
 **ステップ2：Softmax**
 
