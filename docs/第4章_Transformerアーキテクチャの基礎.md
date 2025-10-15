@@ -444,8 +444,8 @@ embedding_with_pos = word_embedding + PE
 次元
 ↓
    0  10  20  30  40  50
-0  ▓▓░░▓▓░░▓▓░░▓▓  高周波（速く振動）
-50 ▓░▓░▓░▓░▓░▓░▓░  中周波
+0  ▓░▓░▓░▓░▓░▓░▓░  高周波（速く振動）
+50 ▓▓░░▓▓░░▓▓░░▓▓  中周波
 100▓▓▓▓▓░░░░▓▓▓▓  低周波（ゆっくり振動）
 ```
 
@@ -480,8 +480,8 @@ $$\mathbf{PE} \in \mathbb{R}^{L_{\max} \times d_{\text{model}}}$$
 「猫が魚を食べる」
 「犬が肉を食べる」
 
-重要なのは「が」と「食べる」の相対位置（4単語離れている）
-絶対位置（2番目、6番目）ではない
+重要なのは「が」と「食べる」の相対位置（3単語離れている）
+絶対位置（2番目、5番目）ではない
 ```
 
 **相対位置エンコーディング：**
@@ -498,36 +498,38 @@ $$A_{ij} = \frac{\mathbf{q}_i \cdot \mathbf{k}_j + \mathbf{q}_i \cdot \mathbf{r}
 
 ### 4.2.4 回転位置エンコーディング（RoPE）
 
-**最新の手法（GPT-Neo、LLaMAなど）：**
+**発展的な手法（GPT-Neo、LLaMAなど）：**
 
 **アイデア：**
 
-> ベクトルを複素平面で回転させる  
-> → 位置情報を幾何学的に埋め込む
+> 各次元ペアを2次元平面で回転させる
+> → 位置情報を幾何学的（回転角度）として埋め込む
 
-**数式（2次元の場合）：**
+**高次元ベクトルの処理：**
+
+d次元ベクトルを d/2 個の2次元ペアに分割し、各ペアを独立に回転
+
+$$\mathbf{q} = [q_0, q_1, q_2, q_3, \ldots, q_{d-1}] \in \mathbb{R}^d$$
+
+2次元ペアに分割：
+
+$$(q_0, q_1) \xrightarrow{\text{回転角 } \theta_0} (q_0', q_1')$$
+
+$$(q_2, q_3) \xrightarrow{\text{回転角 } \theta_1} (q_2', q_3')$$
+
+$$\vdots$$
+
+**数式（1つの2次元ペアの場合）：**
 
 $$\begin{bmatrix} q_0' \\\ q_1' \end{bmatrix} = \begin{bmatrix} \cos(m\theta) & -\sin(m\theta) \\\ \sin(m\theta) & \cos(m\theta) \end{bmatrix} \begin{bmatrix} q_0 \\\ q_1 \end{bmatrix}$$
 
 ここで：
 - $m$：位置
-- $\theta$：回転角度（次元ごとに異なる）
+- $\theta$：回転角度（次元ペアごとに異なる周波数）
 
-**視覚化（2次元）：**
+**視覚化（2次元ペアの回転）：**
 
-```
-複素平面
-   q₁
-    ↑
-    |  ●(q') 位置mでθ回転
-    | /
-    |/___→ q₀
-   ●(q) 元のベクトル
-```
-
-**高次元への拡張：**
-
-d次元を d/2 個の2次元部分空間に分割し、それぞれを回転
+![RoPE 2次元回転](../images/rope_rotation_2d.svg)
 
 **重要な性質：**
 
@@ -540,9 +542,9 @@ $$\mathbf{q}_m^\top \mathbf{k}_n = \mathbf{q}_0^\top \mathbf{R}_{n-m} \mathbf{k}
 2. 長い系列への外挿が良好
 3. 計算効率的
 
-**LLaMA-2での採用：**
+**採用例：**
 
-最新のオープンソースLLMで標準的に使用
+LLaMA、GPT-NeoXなど多くのオープンソースLLMで標準的に使用
 
 ---
 
@@ -646,22 +648,44 @@ Layer Normあり:
 
 **Post-LN（オリジナルTransformer）：**
 
-```
-x → Self-Attention → Add → LayerNorm
-  ↘___残差接続_____↗
+```mermaid
+graph LR
+    X1[x] --> SA[Self-Attention]
+    X1 -.残差接続.-> Add1[Add]
+    SA --> Add1
+    Add1 --> LN1[LayerNorm]
 
-  → Feed-Forward → Add → LayerNorm
-  ↘___残差接続___↗
+    LN1 --> FF[Feed-Forward]
+    LN1 -.残差接続.-> Add2[Add]
+    FF --> Add2
+    Add2 --> LN2[LayerNorm]
+    LN2 --> Out[出力]
+
+    style X1 fill:#e3f2fd
+    style Out fill:#e8f5e9
+    style Add1 fill:#fff3e0
+    style Add2 fill:#fff3e0
 ```
 
 **Pre-LN（最近のLLM）：**
 
-```
-x → LayerNorm → Self-Attention → Add
-  ↘________残差接続______________↗
+```mermaid
+graph LR
+    X2[x] --> LN3[LayerNorm]
+    X2 -.残差接続.-> Add3[Add]
+    LN3 --> SA2[Self-Attention]
+    SA2 --> Add3
 
-  → LayerNorm → Feed-Forward → Add
-  ↘________残差接続____________↗
+    Add3 --> LN4[LayerNorm]
+    Add3 -.残差接続.-> Add4[Add]
+    LN4 --> FF2[Feed-Forward]
+    FF2 --> Add4
+    Add4 --> Out2[出力]
+
+    style X2 fill:#e3f2fd
+    style Out2 fill:#e8f5e9
+    style Add3 fill:#fff3e0
+    style Add4 fill:#fff3e0
 ```
 
 **Pre-LNの利点：**
@@ -680,6 +704,8 @@ x → LayerNorm → Self-Attention → Add
 ## 4.4 フィードフォワードネットワークの役割
 
 ### 4.4.1 FFNの構造
+
+FFN（Feed-Forward Network）は **2層のMLP（多層パーセプトロン）** です。
 
 **定義：**
 
@@ -725,35 +751,42 @@ $$\text{FFN params} = d_{\text{model}} \times d_{ff} \times 2 = 768 \times 3072 
 アテンションは線形演算（重み付き和）  
 → FFNで非線形性を導入
 
-#### 2. 位置ごとの処理
+#### 2. 各行への独立適用
 
 **重要な特徴：**
 
-> FFNは各位置に**独立に**適用される
+> FFNは入力行列の **各行に独立に** 適用される
 
-$$\text{FFN}(\mathbf{X})_{i,:} = \text{FFN}(\mathbf{x}_i)$$
+入力系列 $\mathbf{X} \in \mathbb{R}^{L \times d_{\text{model}}}$ の $i$ 番目の行（$i$ 番目の単語の表現）を $\mathbf{x}_i \in \mathbb{R}^{d_{\text{model}}}$ とすると：
+
+$$\text{FFN}(\mathbf{X})[i] = \text{FFN}(\mathbf{x}_i), \quad i = 1, 2, \ldots, L$$
+
+ここで $L$ は系列長（行数）。同じFFNの重みを各行に独立に適用。
 
 ```
-位置1の表現 → FFN → 変換後
-位置2の表現 → FFN → 変換後
+1番目の単語の表現 → FFN → 変換後
+2番目の単語の表現 → FFN → 変換後
 ...
-（同じFFN、独立に処理）
+（同じFFNの重み、各要素に独立適用）
 ```
 
 #### 3. 特徴変換
 
 **解釈：**
 
-各ニューロンが特定のパターンを検出
+隠れ層の各ニューロン（$d_{ff}$ 個、例：3072個）が特定のパターンを検出
 
 **例（仮想的）：**
 
 ```
-ニューロン1: "過去形の動詞"を検出
-ニューロン2: "複数形の名詞"を検出
-ニューロン3: "否定表現"を検出
+隠れ層ニューロン1: "過去形の動詞"を検出
+隠れ層ニューロン2: "複数形の名詞"を検出
+隠れ層ニューロン3: "否定表現"を検出
 ...
+隠れ層ニューロン3072: "特定の言語パターン"を検出
 ```
+
+各ニューロンの出力が次の層で重み付けされて統合される
 
 #### 4. 記憶容量
 

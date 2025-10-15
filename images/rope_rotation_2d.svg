@@ -1,0 +1,48 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="400" height="400" fill="white"/>
+
+  <!-- 軸 -->
+  <line x1="0" y1="200" x2="400" y2="200"
+        stroke="#cccccc" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="200" y1="0" x2="200" y2="400"
+        stroke="#cccccc" stroke-width="1" stroke-dasharray="5,5"/>
+
+  <!-- 軸ラベル -->
+  <text x="370" y="190" font-size="16" fill="#666">q₀</text>
+  <text x="210" y="20" font-size="16" fill="#666">q₁</text>
+
+  <!-- 元のベクトル q -->
+  <line x1="200" y1="200"
+        x2="320.0" y2="136.0"
+        stroke="#3b82f6" stroke-width="3" marker-end="url(#arrowblue)"/>
+  <circle cx="320.0" cy="136.0" r="5" fill="#3b82f6"/>
+  <text x="330.0" y="126.0" font-size="16" fill="#3b82f6" font-weight="bold">q</text>
+
+  <!-- 回転後のベクトル q' -->
+  <line x1="200" y1="200"
+        x2="271.92304845413264" y2="84.57437415779593"
+        stroke="#ef4444" stroke-width="3" marker-end="url(#arrowred)"/>
+  <circle cx="271.92304845413264" cy="84.57437415779593" r="5" fill="#ef4444"/>
+  <text x="281.92304845413264" y="89.57437415779593" font-size="16" fill="#ef4444" font-weight="bold">q'</text>
+
+  <!-- 回転角の弧（qからq'へ） -->
+  <path d="M 252.94117647058823 171.76470588235293
+           A 60 60 0 0 0 231.73075667094088 149.0769297754982"
+        stroke="#10b981" stroke-width="2" fill="none"/>
+  <text x="254.7867722066876" y="148.780769322719" font-size="14" fill="#10b981" font-weight="bold">mθ</text>
+
+  <!-- 矢印マーカー定義 -->
+  <defs>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <!-- 説明テキスト -->
+  <text x="10" y="30" font-size="14" fill="#333">2次元平面での回転</text>
+  <text x="10" y="380" font-size="12" fill="#666">元のベクトル q を角度 mθ 回転して q' を得る</text>
+</svg>
